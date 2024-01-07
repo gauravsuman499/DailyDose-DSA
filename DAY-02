@@ -55,3 +55,30 @@ public:
         }
     }
 };
+
+
+// 3#->Majority Element(>n/2 times)
+
+SOLUTION Code-> usine Moore's voting Algorithm.
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n = nums.size() ;
+        int cnt = 1 ;
+        int majEle  = nums[0] ;
+        for(int i  = 1; i<n; i++){
+            if(nums[i] == majEle){
+                cnt++ ;
+            }
+            else{
+                cnt-- ;
+                if(cnt == 0){
+                    majEle = nums[i] ;
+                    cnt = 1 ;
+                }
+            }
+        }
+        return majEle  ;
+    }
+};
