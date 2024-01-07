@@ -1,4 +1,4 @@
-// #-> TWO SUM
+// 1#-> TWO SUM
 
 Solution Code:
 
@@ -25,3 +25,33 @@ public:
 
 T - O(N) , in worst case-> O(N2)
 S - O(N)
+
+// 2#-> Sort Colors(0's , 1's and 2's) :-
+
+Solution Code->
+
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        // Using dutch national flag algorithm
+
+        int n = nums.size() ;
+        int s = 0 , m = 0 , e = n-1  ;
+
+        while( m <= e){
+
+            if( nums[m] == 0){
+                swap(nums[m] , nums[s]) ;
+                m++;
+                s++;
+            }
+            else if( nums[m] == 1){
+                m++;
+            }
+            else{
+                swap(nums[m] , nums[e] );
+                e-- ;
+            }
+        }
+    }
+};
