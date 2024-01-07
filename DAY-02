@@ -1,0 +1,27 @@
+// #-> TWO SUM
+
+Solution Code:
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> ans ;
+        int n = nums.size() ;
+        unordered_map<int, int> umap ;
+        for(int i = 0 ; i <n ; i++){
+            int req = target - nums[i] ;
+            if( umap.find(req) != umap.end() ){
+                ans.push_back(i) ;
+                ans.push_back(umap[req]) ;
+                return ans  ;
+            }
+            else{
+                umap[nums[i]]  = i ;
+            }
+        }
+        return ans  ;
+    }
+};
+
+T - O(N) , in worst case-> O(N2)
+S - O(N)
