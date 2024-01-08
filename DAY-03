@@ -25,4 +25,6 @@ public:
     }
 };
 
+Note-> There might be a follow up question that is to print any of the (in case of multiple) subarray having maximum subarray sum.
+Approach-> we can do that by storing ansStart and ansEnd variable value , where ansStart will represent the starting index of subarray with max value and ansEnd will represent the end index.
 
