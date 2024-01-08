@@ -25,6 +25,38 @@ public:
     }
 };
 
+T-> O(N)
+S->O(1)
+
 Note-> There might be a follow up question that is to print any of the (in case of multiple) subarray having maximum subarray sum.
 Approach-> we can do that by storing ansStart and ansEnd variable value , where ansStart will represent the starting index of subarray with max value and ansEnd will represent the end index.
+T->O(N)
+S->O(N)
+
+//#Q-02-> Rearrange the array elements in alternating positive and negative items.
+
+Solution Code:-
+
+class Solution {
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+        int n = nums.size() ;
+        int pos = 0 , neg = 1 ;
+        vector<int> ans(n)  ;
+        for(int i =0; i<n; i++){
+            if(nums[i] > 0){
+                ans[pos] = nums[i] ;
+                pos += 2 ;
+            }
+            else{
+                ans[neg] = nums[i] ;
+                neg += 2 ;
+            }
+        } 
+        return ans  ;   
+    }
+};
+
+T->O(N)
+S->O(N)
 
