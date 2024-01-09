@@ -23,3 +23,34 @@ class Solution{
 
 T->O(N)
 S->O(N)
+
+
+//Q-02:Longest Consecutive Sequence in an Array.
+
+Solution Code:
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        int n = nums.size() , cnt = 0 , maxCnt = 0 ;
+        unordered_set<int> st ;
+        for(int i = 0; i<n; i++){
+            st.insert(nums[i]) ;
+        }
+        for(auto x: st){
+            if( st.find(x-1) == st.end()){
+                cnt = 1 ;
+                int val = x ;
+                while(st.find(val+1) != st.end()){
+                    cnt++ ;
+                    val += 1 ;
+                }
+            maxCnt = max(maxCnt, cnt) ;
+            }
+        }
+        return maxCnt  ;
+    }
+};
+
+T->O(N), worst->O(N2)
+S->O(N)
