@@ -52,3 +52,73 @@ public:
 T->O(logN)
 S->O(1) 
 
+
+//###Q-03:-> Floor/Ceil in a sorted array.
+
+Solution Code:- 
+//for finding floor of a given Element.
+
+class Solution{
+  public:
+    // Function to find floor of x
+    // n: size of vector
+    // x: element whose floor is to find
+    int findFloor(vector<long long> v, long long n, long long x){
+        
+        // Your code here
+        int ans  = -1 ;
+        long long s = 0 , e = n-1 ;
+        
+        while( s<= e){
+            long long mid = s+(e-s)/2  ;
+            
+            if( v[mid] == x)    return mid ;
+            else if(v[mid] < x){
+                ans = mid ;
+                s = mid + 1 ;
+            }
+            else
+                e = mid -1 ;
+        }
+        return ans ;
+        
+    }
+};
+
+//For finding ceil of a given element.
+
+class Solution{
+  public:
+    // Function to find floor of x
+    // n: size of vector
+    // x: element whose floor is to find
+    int findFloor(vector<long long> v, long long n, long long x){
+        
+        // Your code here
+        int ans  = -1 ;
+        long long s = 0 , e = n-1 ;
+        
+        while( s<= e){
+            long long mid = s+(e-s)/2  ;
+            
+            if( v[mid] == x)    return mid ;
+            else if(v[mid] < x){
+                s = mid + 1 ;
+            }
+            else{
+                ans = mid ;
+                e = mid -1 ;
+            }
+        }
+        return ans ;
+        
+    }
+};
+
+
+T->O(logN)
+S->O(1)
+
+
+
+
