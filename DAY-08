@@ -31,3 +31,49 @@ public:
 
 T->O(logN)
 S->O(1)
+
+
+
+///###Q-02:- Find out how many times the array is rotated:-
+
+int findKRotation(vector<int> &arr){
+int s  = 0 ,  e = arr.size() -1 , mid , indx = -1  , minEle = INT_MAX  ;
+
+while( s<= e){
+mid = s+(e-s)/2  ;
+
+if(arr[s] <=  arr[e]){
+if(arr[s] < minEle){
+minEle = arr[s] ;
+indx =  s ;
+}
+break ;
+}
+if( arr[s] <= arr[mid]){
+if(arr[s]  < minEle){
+minEle = arr[s] ;
+indx = s ;
+}
+    s = mid + 1 ;
+}
+else {
+    if( arr[mid] < minEle){
+minEle = arr[mid] ;
+indx = mid  ;
+}
+e = mid - 1 ;
+}
+}
+return indx ; 
+}
+
+T->O(logN)
+S->O(1)
+
+
+
+
+
+
+
+
